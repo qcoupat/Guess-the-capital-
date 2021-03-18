@@ -43,7 +43,7 @@ function affiche(listesPays){
 
     listesPays.forEach(pays => {
         let div = document.createElement("div");
-        div.style = "display: flex; flex-direction: column; border: 1px solid black; margin: 5px; width: fit-content;";
+        div.style = "display: flex; flex-direction: column; border: 1px solid black; margin: 5px; width: fit-content; background-color: white;";
         Pays.append(div);
         //flag
         let flag = document.createElement("img");

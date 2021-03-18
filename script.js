@@ -13,7 +13,7 @@ function appelAjax(){
         return false;
     }
 
-    xhr.open("GET", "https://restcountries.eu/rest/v2/name/"+pays+"?format=json&field=name;altSpellings;capital;regionalBlocs;currencies;topLevelDomain;population", true);
+    xhr.open("GET", "https://restcountries.eu/rest/v2/name/"+pays+"?format=json&field=name;altSpellings;capital;regionalBlocs;currencies;topLevelDomain;population;", true);
     xhr.onreadystatechange = retour;
     xhr.send(null);
 
@@ -57,6 +57,11 @@ function affiche(listesPays){
         h2.style = "padding: 10px;"
         h2.appendChild(text);
         div.append(h2);
+        // redirection vers 2nd page
+        let redir = document.createElement("a");
+        redir.href = "./detail.html?id="+pays.name;
+        redir.appendChild(text);
+        h2.append(redir);
         //capital
         let span1 = document.createElement("div");
         let textCapital = document.createTextNode("Capital : " + pays.capital);
@@ -88,6 +93,7 @@ function clear () {
     }
 }
 
+//TODO Ne fonctionne pas à corriger
 function erreur(){
     clear();
     let divError = createElement("div");

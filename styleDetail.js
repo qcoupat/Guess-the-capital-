@@ -46,6 +46,9 @@ function affiche(paysSelec) {
     //pays
     let text = document.createTextNode(paysDetail.name );
     document.querySelector('#pays').appendChild(text);
+    //text pour legend
+    let textLegend = document.createTextNode("Country : " + paysDetail.name );
+    document.querySelector('#legend').appendChild(textLegend);
     //capital
     let textCapital = document.createTextNode("Capital : " + paysDetail.capital);
     document.querySelector('#capital').appendChild(textCapital);

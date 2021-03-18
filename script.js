@@ -2,7 +2,7 @@ window.onload = init;
 
 function init(){
     document.querySelector('#cardi').style.display = 'none';
-    document.querySelector('#validation').onclick = appelAjax;
+    document.querySelector('#saisie').onkeyup = appelAjax;
 } 
 function appelAjax(){
     document.querySelector('#cardi').style.display = '';
@@ -21,13 +21,13 @@ function appelAjax(){
         let listesPays = "";
         if(xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200){
-                //   console.log('retour ' + xhr.responseText);
-                //   console.log('retour2 ' + xhr.responseXML);    // null
-
                 let response = xhr.responseText;
                 listesPays = JSON.parse(response);
                 affiche(listesPays);
-            } else {
+            } else if (xhr.status === 404) {
+                erreur();
+            }
+            else {
                 alert('Il y a eu un pb avec la requete');
             }
         }
@@ -35,6 +35,9 @@ function appelAjax(){
 }
 
 function affiche(listesPays){
+
+    clear();
+
     let Pays = document.querySelector("#pays");
     Pays.style = "display: flex; flex-direction: row; flex-wrap: wrap;";
 
@@ -77,4 +80,18 @@ function affiche(listesPays){
         div.append(span3);
     })
 }
-        // let text = document.createTextNode(pays.name + ' - drapeau : ' + pays.flag + ' - capital ' + pays.capital);
+
+function clear () {
+    let divListePays = document.querySelector('#pays');
+    while (divListePays.firstChild) {
+        divListePays.removeChild(divListePays.lastChild);
+    }
+}
+
+function erreur(){
+    clear();
+    let divError = createElement("div");
+    let textError = createTextNode("Mais ... Il faut que tu rentres un pays");
+    divError.appendChild(textError);
+    div.append(divError);
+}

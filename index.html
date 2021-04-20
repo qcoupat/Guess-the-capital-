@@ -11,9 +11,36 @@
     <div class="map">
         <!-- <img src="./assets/img/world.jpg" alt="World map"> -->
     </div>
+    <div class="learn"><a href="./information.html">
+        Learn
+    </a></div>
     <div class="titrePere">
         <div class="titre">
-            <h1>What is the capital ?</h1>
+            <h1>Guess the capital ?</h1>
+            <p>This is a game where you can choose either to play with yourself or with multiple players ?</p>
+            <!-- <p>Enter the number of players you want to play with</p>
+            <select name="players" id="players">
+                <option value="-">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select> -->
+            <div class="players">
+                <div class="player1">
+                    <h3>Player 1</h3>
+                    <span>Name : </span>
+                    <input type="text">
+                    <button>Valider</button>
+                </div>
+                <div class="player2">
+                    <h3>Player 2</h3>
+                    <span>Name : </span>
+                    <input type="text">
+                    <button>Valider</button>
+                </div>
+            </div>
+            <p>If you want to develop your general geographic culture, use the search box below and type the country you want to learn more information about. </p>
             <input type="text" id="saisie" placeholder="Enter a country">
             <button id="validation" type="submit">Search</button>
         </div>
@@ -22,5 +49,6 @@
         <div id="pays"></div>
     </div>
     <script src="./script.js"></script>
+    <script src="./scriptGame.js"></script>
 </body>
 </html>

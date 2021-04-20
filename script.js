@@ -3,6 +3,7 @@ window.onload = init;
 function init(){
     document.querySelector('#cardi').style.display = 'none';
     document.querySelector('#saisie').onkeyup = appelAjax;
+    afficheJoueurs();
 } 
 function appelAjax(){
     document.querySelector('#cardi').style.display = '';
@@ -101,3 +102,11 @@ function erreur(){
     divError.appendChild(textError);
     div.append(divError);
 }
+
+// function afficheJoueurs() {
+//     const select = document.querySelector("#players").value;
+//     console.log(select);
+//     select.addEventListener('change', function(event){
+//         console.log("coucou");
+//     })
+// }

@@ -37,3 +37,38 @@ legend {
     padding: 3px 6px;
     text-align: left;
 }
+.players{
+    display: flex;
+    justify-content: space-evenly;
+}
+.player1{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #ffff;
+}
+.player2{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #ffff;
+}
+.learn{
+    float: right;
+    font-size: 20px;
+
+}
+.learn a {
+    text-decoration: none;
+    color: black;
+}
+.home{
+    float: left;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+.home a{
+    text-decoration: none;
+    color: black;
+}

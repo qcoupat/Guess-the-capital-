@@ -3,7 +3,6 @@ window.onload = init;
 function init(){
     document.querySelector('#cardi').style.display = 'none';
     document.querySelector('#saisie').onkeyup = appelAjax;
-    afficheJoueurs();
 } 
 function appelAjax(){
     document.querySelector('#cardi').style.display = '';
@@ -103,10 +102,40 @@ function erreur(){
     div.append(divError);
 }
 
-// function afficheJoueurs() {
-//     const select = document.querySelector("#players").value;
-//     console.log(select);
-//     select.addEventListener('change', function(event){
-//         console.log("coucou");
-//     })
-// }
+// JS pour récupérer les noms des joueurs et préparer leur fiche joueurs
+
+const namePlayer1 = document.querySelector("#j1").addEventListener("click", afficheJoueur1);
+const namePlayer2 = document.querySelector("#j2").addEventListener("click", afficheJoueur2);
+
+function afficheJoueur1() {
+    const joueur = document.querySelector("#joueur1").value;
+    console.log(joueur);
+    addCheckPlayer1();
+}
+function afficheJoueur2() {
+    const joueur = document.querySelector("#joueur2").value;
+    console.log(joueur);
+    addCheckPlayer2();
+}
+
+function addCheckPlayer1 () {
+    let player1 = document.querySelector(".player1");
+    let player1Child = document.querySelector(".player1Child");
+    player1Child.style = "display: flex; align-items: center;";
+    let check = document.createElement("img");
+    check.src = "./assets/img/check-solid.svg";
+    check.style = "width: 20px; margin-left: 10px";
+    document.querySelector("#j1").style.display = 'none';
+    player1Child.append(check);
+}
+
+function addCheckPlayer2 () {
+    let player1 = document.querySelector(".player2");
+    let player1Child = document.querySelector(".player2Child");
+    player1Child.style = "display: flex; align-items: center;";
+    let check = document.createElement("img");
+    check.src = "./assets/img/check-solid.svg";
+    check.style = "width: 20px; margin-left: 10px";
+    document.querySelector("#j2").style.display = 'none';
+    player1Child.append(check);
+}

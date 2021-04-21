@@ -72,3 +72,13 @@ legend {
     text-decoration: none;
     color: black;
 }
+.start{
+    margin-top: 20px;
+    font-size: 22px;
+    border-radius: 10px;
+}
+#quizz{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}

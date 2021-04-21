@@ -2,6 +2,7 @@ window.onload = init;
 
 function init(){
     document.querySelector('#cardi').style.display = 'none';
+    document.querySelector('#quizz').style.display = 'none';
     document.querySelector('#saisie').onkeyup = appelAjax;
 } 
 function appelAjax(){
@@ -109,17 +110,23 @@ const namePlayer2 = document.querySelector("#j2").addEventListener("click", affi
 
 function afficheJoueur1() {
     const joueur = document.querySelector("#joueur1").value;
-    console.log(joueur);
-    addCheckPlayer1();
+    if (joueur == null || joueur == "" || joueur == " "){
+        alert("Il faut rentrer un nom");
+    } else {
+        document.querySelector
+        addCheckPlayer1();
+    }
 }
 function afficheJoueur2() {
     const joueur = document.querySelector("#joueur2").value;
-    console.log(joueur);
-    addCheckPlayer2();
+    if (joueur == null || joueur == "" || joueur == " "){
+        alert("Il faut rentrer un nom");
+    } else {
+        addCheckPlayer2();
+    }
 }
 
 function addCheckPlayer1 () {
-    let player1 = document.querySelector(".player1");
     let player1Child = document.querySelector(".player1Child");
     player1Child.style = "display: flex; align-items: center;";
     let check = document.createElement("img");
@@ -127,10 +134,24 @@ function addCheckPlayer1 () {
     check.style = "width: 20px; margin-left: 10px";
     document.querySelector("#j1").style.display = 'none';
     player1Child.append(check);
+
+    // Rajout des informations pour calculer le score
+    let player1 = document.querySelector(".player1");
+    let score = document.createElement("div");
+    score.className = "score";
+    score.style = "padding: 15px;"
+    let gain = document.createTextNode("Correct answers : ");
+    let loss = document.createTextNode("Wrong answers : ");
+    let gainEl = document.createElement("div");
+    let lossEl = document.createElement("div");
+    gainEl.appendChild(gain);
+    lossEl.appendChild(loss);
+    gainEl.style = "text-align: initial;";
+    lossEl.style = "text-align: initial;";
+    player1.append(gainEl, lossEl);
 }
 
 function addCheckPlayer2 () {
-    let player1 = document.querySelector(".player2");
     let player1Child = document.querySelector(".player2Child");
     player1Child.style = "display: flex; align-items: center;";
     let check = document.createElement("img");
@@ -138,4 +159,42 @@ function addCheckPlayer2 () {
     check.style = "width: 20px; margin-left: 10px";
     document.querySelector("#j2").style.display = 'none';
     player1Child.append(check);
+
+    // Rajout des informations pour calculer le score
+    let player2 = document.querySelector(".player2");
+    let score = document.createElement("div");
+    score.className = "score";
+    score.style = "padding: 15px;"
+    let gain = document.createTextNode("Correct answers : ");
+    let loss = document.createTextNode("Wrong answers : ");
+    let gainEl = document.createElement("div");
+    let lossEl = document.createElement("div");
+    gainEl.appendChild(gain);
+    lossEl.appendChild(loss);
+    gainEl.style = "text-align: initial;";
+    lossEl.style = "text-align: initial;";
+    player2.append(gainEl, lossEl);
+}
+//TODO A terminer pour éviter les alert
+// function emptyString () {
+//     let error = document.querySelector(".player1");
+//     let div = document.createElement("div");
+//     let info = document.createTextNode("You must enter a name to play the game");
+//     div.append(info);
+//     error.append(div);
+// }
+
+//TODO A terminer, se renseigner comment faire pour check quand les 2 fonctions addCheck sont terminées pour envoyer la fct dessous
+function startTheGame() {
+    let start = document.querySelector(".startFather");
+    let button = document.createElement("button");
+    button.className = "start";
+    start.appendChild(button);
+}
+
+const startGame = document.querySelector("#start").addEventListener("click",game);
+
+function game() {
+    const quizz = document.querySelector("#quizz").style.display = '';
+    console.log("c'est good - je peux bientot joue")
 }
